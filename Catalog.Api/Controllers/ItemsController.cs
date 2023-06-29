@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Catalog.Dtos;
-using Catalog.Models;
-using Catalog.Repository;
+using Catalog.Api.Dtos;
+using Catalog.Api.Models;
+using Catalog.Api.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Catalog.Controllers {
+namespace Catalog.Api.Controllers {
     [ApiController]
     [Route("items")]
     public class ItemsController: ControllerBase {
@@ -22,7 +22,7 @@ namespace Catalog.Controllers {
         }
 
         [HttpGet]
-        public async Task<IEnumerable<ItemDto>> GetItems()
+        public async Task<IEnumerable<ItemDto>> GetItemsAsync()
         {
             var items = (await repository.GetItemsAsync())
             .Select(item => item.AsDto());
@@ -42,7 +42,7 @@ namespace Catalog.Controllers {
                 return NotFound();
             }
 
-            return Ok(item.AsDto());
+            return item.AsDto();
         }
 
         // POST /items

@@ -1,8 +1,7 @@
 using System;
 
-namespace Catalog.Dtos 
-{
-    public record ItemDto
+namespace Catalog.Api.Models{
+    public record Item 
     {
         public Guid Id { get; init; }
         public string Name { get; init; }

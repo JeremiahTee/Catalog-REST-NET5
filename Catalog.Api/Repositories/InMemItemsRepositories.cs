@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Catalog.Models;
+using Catalog.Api.Models;
 
-namespace Catalog.Repository {
+namespace Catalog.Api.Repository {
     public class InMemItemsRepository : IItemsRepository
     {
         private readonly List<Item> items = new()
